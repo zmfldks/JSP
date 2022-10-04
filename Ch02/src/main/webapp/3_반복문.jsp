@@ -49,9 +49,10 @@
 			<% for(int x=1 ; x<=9 ; x++){ %>
 			<tr>
 				<% for(int y=2 ; y<=9 ; y++){ %>
-				<td><% y %> x <% x %> = </td>
+				<td><%= y %> x <%= x %> = <%= x*y %></td>
 				<% } %>
 			</tr>
+			<% } %>
 		</table>
 	</body>
 </html>

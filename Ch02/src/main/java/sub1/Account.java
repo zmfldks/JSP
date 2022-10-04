@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.servlet.jsp.JspWriter;
 
 public class Account {
+
 	private String bank;
 	private String id;
 	private String name;
@@ -14,7 +15,7 @@ public class Account {
 		this.bank = bank;
 		this.id = id;
 		this.name = name;
-		this.balance =balance;
+		this.balance = balance;
 	}
 	
 	public void deposit(int money) {
@@ -30,8 +31,8 @@ public class Account {
 		out.println("은행명 : "+bank+"<br/>");
 		out.println("계좌번호 : "+id+"<br/>");
 		out.println("입금주 : "+name+"<br/>");
-		out.println("현재잔액 : "+balance+"<br/>");
-		out.println("</p>");
-		
+		out.println("현재잔액 : "+balance+"<br/>");		
+		out.println("</p>");		
 	}
+	
 }
