@@ -21,7 +21,7 @@
 	<body>
 		<h3>스크립트 요소</h3>
 
-		<h4>스크립트릿(Scriplet)</h4>
+		<h4>스크립트릿(Scriptlet)</h4>
 			<%
 				// 스크립트릿(프로그래밍 코드 영역)
 				int 	var1 =1;
@@ -30,8 +30,8 @@
 				String 	var4 = "Hello";
 				
 				// JSP 출력객체로 HTML 출력
-				out.println("<p>var1 : " +var1+"</p>");
-				out.println("<p>var2 : " +var2+"</p>");
+				out.println("<p>var1 : "+var1+"</p>");
+				out.println("<p>var2 : "+var2+"</p>");
 			
 			
 			%>

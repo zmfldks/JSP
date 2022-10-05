@@ -15,14 +15,14 @@
 		
 		<h4>if</h4>
 		<%
-		int num1 = 1;
-		int num2 = 2;
-		int num3 = 3;
-		int num4 = 4;
-
-		if(num1 > 0){
-			out.println("<p>num1은 0보다 크다.</p>");
-		}
+			int num1 = 1;
+			int num2 = 2;
+			int num3 = 3;
+			int num4 = 4;
+	
+			if(num1 > 0){
+				out.println("<p>num1은 0보다 크다.</p>");
+			}
 		%>
 		
 		<h4>if~else</h4>
@@ -35,7 +35,7 @@
 		<%
 			}else{
 		%>
-		<p>var1은 var2보다 작다.</p>
+			<p>var1은 var2보다 작다.</p>
 		<%
 			}
 		%>
@@ -46,13 +46,13 @@
 			if(n1 > n2){
 		%>
 			<p>n1이 n2보다 크다.</p>
-		<% }else if(n2 > n3){ %>
+		<% 	}else if(n2 > n3){ %>
 			<p>n2이 n3보다 크다.</p>
-		<% }else if(n3 > n4){ %>	
+		<% 	}else if(n3 > n4){ %>	
 			<p>n3이 n4보다 크다.</p>
-		<% }else{ %>
+		<% 	}else{ %>
 			<p>n4가 가장 크다.</p>
-		<% } %>
+		<% 	} %>
 		
 		<h4>if ~ else if ~ else</h4>
 		<%
