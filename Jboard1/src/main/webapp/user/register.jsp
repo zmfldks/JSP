@@ -51,13 +51,17 @@
                         </tr>
                         <tr>
                             <td>이메일</td>
-                            <td><input type="email" name="email" placeholder="이메일 입력"/></td>
-                            <span class="emailResult"></span>
+                           	<td>
+	                           <input type="email" name="email" placeholder="이메일 입력"/>
+	                           <span class="emailResult"></span>
+                            </td>
                         </tr>
                         <tr>
                             <td>휴대폰</td>
-                            <td><input type="text" name="hp" placeholder="휴대폰 입력"/></td>
-                            <span class="hpResult"></span>
+                            <td>
+	                            <input type="text" name="hp" placeholder="휴대폰 입력"/>
+	                            <span class="hpResult"></span>
+                            </td>
                         </tr>
                         <tr>
                             <td>주소</td>
