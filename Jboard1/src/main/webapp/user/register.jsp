@@ -52,7 +52,7 @@
                         <tr>
                             <td>이메일</td>
                            	<td>
-	                           <input type="email" name="email" placeholder="이메일 입력"/>
+	                           <input type="email" name="email"  placeholder="이메일 입력"/>
 	                           <span class="emailResult"></span>
                             </td>
                         </tr>

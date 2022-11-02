@@ -137,31 +137,30 @@
 		
 		// 별명 검사하기
 		$('input[name=nick]').keydown(function(){
-			isNickOk =false;
-		});
+		isNickOk = false;
+	});
+	
+	$('#btnNickCheck').click(function(){			
+					
+		let nick = $('input[name=nick]').val();
 		
-		$('#btnNickCheck').click(function(){
-			
-			let nick = $('input[name=nick]').val();
-			
-			if(isNickOk){
-				return;
-			}
-
-			if(!nick.match(reNick)){
-				
-				$('.nickResult').css('color','red').text('유효한 별명이 아닙니다.');
-				isNickOk = false;
-				return;
-			}
-			
-			let jsonData = {
-				"nick": nick	
-			};
-			
-			$('.nickResult').css('color','black').text('...');
-			
-			setTimeout(function(){
+		if(isNickOk){
+			return;
+		}
+		
+		if(!nick.match(reNick)) {
+			$('.nickResult').css('color', 'red').text('유효한 별명이 아닙니다.');
+			isNickOk = false;
+			return;
+		}
+		
+		let jsonData = {
+			"nick": nick
+		};
+		
+		$('.nickResult').css('color', 'black').text('...');
+		
+		setTimeout(function(){
 			
 			$.ajax({
 				url: './proc/checkNick.jsp',
@@ -170,38 +169,22 @@
 				dataType: 'json',
 				success: function(data){
 					if(data.result == 0){
-						$('.nickResult').css('color','green').text('사용 가능한 별명 입니다.');
+						$('.nickResult').css('color', 'green').text('사용 가능한 별명 입니다.');
 						isNickOk = true;
 					}else{
-						$('.nickResult').css('color','red').text('이미 사용중인 별명 입니다.');
+						$('.nickResult').css('color', 'red').text('이미 사용중인 별명 입니다.');
 						isNickOk = false;
-					}
-					
-				}
+					}					
+				}				
 			});
 			
-		  }, 500);
-			
-		});
+		}, 500);
+	});
 		
-		/*
-		$('input[name=nick]').focusout(function(){
-			
-			let nick = $(this).val();
-			
-			if(nick.match(reNick)){
-				isNickOk =true;
-				$('.nickResult').text('');
-			}else{
-				isNickOk =false;
-				$('.nickResult').css('color','red').text('유효하지 않는 별명입니다');
-			}
-			
-		});
-		*/
+		
 		// 이메일 검사하기
 		$('input[name=email]').focusout(function(){
-			
+			 
 			let email = $(this).val();
 			
 			if(email.match(reEmail)){
@@ -211,6 +194,32 @@
 				isEmailOk =false;
 				$('.emailResult').css('color','red').text('유효하지 않는 이메일입니다');
 			}
+			
+			let jsonData = {
+			"email": email
+		};
+		
+		$('.emailResult').css('color', 'black').text('...');
+		
+		setTimeout(function(){
+			
+			$.ajax({
+				url: './proc/checkEmail.jsp',
+				method: 'get',
+				data: jsonData,
+				dataType: 'json',
+				success: function(data){
+					if(data.result == 0){
+						$('.emailResult').css('color', 'green').text('사용 가능한 이메일 입니다.');
+						isEmailOk = true;
+					}else{
+						$('.emailResult').css('color', 'red').text('이미 사용중인 이메일 입니다.');
+						isEmailOk = false;
+					}					
+				}				
+			});
+			
+		}, 500);
 			
 		});
 		// 휴대폰 검사하기
@@ -272,4 +281,19 @@
 		});
 		
 	});
+	/*
+		$('input[name=nick]').focusout(function(){
+			
+			let nick = $(this).val();
+			
+			if(nick.match(reNick)){
+				isNickOk =true;
+				$('.nickResult').text('');
+			}else{
+				isNickOk =false;
+				$('.nickResult').css('color','red').text('유효하지 않는 별명입니다');
+			}
+			
+		});
+		*/
  

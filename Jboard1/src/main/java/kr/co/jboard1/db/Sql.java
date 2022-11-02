@@ -4,22 +4,24 @@ public class Sql {
 	
 	// user
 	public static final String INSERT_USER = "INSERT INTO `board_user` set "
-											+ "`uid` =?,"
-											+ "`pass` =SHA2(?,256),"
-											+ "`name` =?,"
-											+ "`nick` =?,"
-											+ "`email` =?,"
-											+ "`hp` =?,"
-											+ "`zip` =?,"
-											+ "`addr1` =?,"
-											+ "`addr2` =?,"
-											+ "`regip` =?,"
-											+ "`rdate` =NOW()";
+											+ "`uid` =?, "
+											+ "`pass` =SHA2(?,256), "
+											+ "`name` =?, "
+											+ "`nick` =?, "
+											+ "`email` =?, "
+											+ "`hp` =?, "
+											+ "`zip` =?, "
+											+ "`addr1` =?, "
+											+ "`addr2` =?, "
+											+ "`regip` =?, "
+											+ "`rdate` =NOW() ";
 	
 	public static final String SELECT_TERMS= "select * from `board_terms`";
 	public static final String SELECT_USER= "select * from `board_user` where `uid`=? and `pass`=SHA2(?, 256)";
 	public static final String SELECT_COUNT_UID= "select count(`uid`) from `board_user` where `uid`=?";
 	public static final String SELECT_COUNT_NICK= "select count(`nick`) from `board_user` where `nick`=?";
+	public static final String SELECT_COUNT_EMAIL="select count(`email`) from board_user where `email`=? ";
+	
 	
 	// board
 	public static final String INSERT_ARTICLE = "insert into `board_article` set "
@@ -69,8 +71,22 @@ public class Sql {
 														+ "JOIN `board_user` AS b USING (`uid`) "
 														+ "WHERE `parent`!=0 ORDER BY `no` DESC LIMIT 1";
 			
+	public static final String UPDATE_ARTICLE = "update `board_article` set `title`=?, `content`=?, `rdate`=NOW() where `no`=? ";
 	
 	public static final String UPDATE_ARTICLE_HIT = " UPDATE `board_article` SET `hit` = `hit` + 1 WHERE `no`=?";
 	
 	public static final String UPDATE_FILE_DOWNLOAD = "update `board_file` set `download` = `download` +1 where `fno`=?";
+	
+	public static final String UPDATE_COMMENT = "update `board_article` set "
+												+ "`content` = ?, "
+												+ "`rdate` = NOW() "
+												+ "where `no` = ? ";
+	
+	public static final String DELETE_ARTICLE = "delete from `board_article` where `no`=? or `parent`=?";
+	
+	public static final String DELETE_COMMENT = "delete from `board_article` where `no`=?";
+	
+	public static final String DELETE_FILE = "delete from `board_file` where `parent`=?";
+	
+	
 }
