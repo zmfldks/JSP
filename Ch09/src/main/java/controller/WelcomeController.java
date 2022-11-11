@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import service.WelcomeService;
 
 @WebServlet("/welcome.do")
 public class WelcomeController extends HttpServlet{
@@ -30,7 +29,6 @@ public class WelcomeController extends HttpServlet{
 	}
 	
 	public void requestProc(HttpServletRequest req, HttpServletResponse resp) {
-		WelcomeService service = WelcomeService.getInstance();
 		
 	}
 }

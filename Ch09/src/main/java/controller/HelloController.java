@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import service.HelloService;
+
 
 @WebServlet("/hello.do")
 public class HelloController extends HttpServlet{
@@ -23,22 +23,20 @@ public class HelloController extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		requestProc(req,resp);
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/hello.jsp");// hello.jsp를 포워드
+		dispatcher.forward(req, resp);
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		requestProc(req,resp);
 	}
 	
 	public void requestProc(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		HelloService service = HelloService.getInstance();
-		String view = service.requestProc(req, resp);
+	;
 		
 		
-		RequestDispatcher dispatcher = req.getRequestDispatcher(view);// hello.jsp를 포워드
-		dispatcher.forward(req, resp);
+		
 		
 	}// 컨트롤러가 포워드 해줘야함 받
 	
