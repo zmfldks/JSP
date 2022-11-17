@@ -28,7 +28,6 @@
 	users = new ArrayList<>();
 	
 	while(rs.next()){
-		
 		UserBean ub = new UserBean();
 		ub.setUid(rs.getString(1));
 		ub.setName(rs.getString(2));

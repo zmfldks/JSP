@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/_header.jsp" %>
+<script src="/Farmstory1/js/zipcode.js"></script>
+<script src="/Farmstory1/js/validation.js"></script>
         <main id="user">
             <section class="register">
 

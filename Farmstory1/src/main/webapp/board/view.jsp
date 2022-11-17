@@ -10,6 +10,7 @@
 	
 	
 	
+	
 	pageContext.include("/board/_"+group+".jsp");
 %>
         <main id="board">
