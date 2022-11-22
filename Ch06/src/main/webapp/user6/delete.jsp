@@ -9,7 +9,7 @@
 	try{
 		Connection conn = DBCP.getConnection();
 		
-		String sql = "DELETE FROM `user5` WHERE `uid`=?";
+		String sql = "DELETE FROM `user6` WHERE `uid`=?";
 		PreparedStatement psmt = conn.prepareStatement(sql);
 		psmt.setString(1, uid);
 		psmt.executeUpdate();

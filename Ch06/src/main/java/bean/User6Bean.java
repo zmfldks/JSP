@@ -1,6 +1,6 @@
 package bean;
 
-public class UserBean6 {
+public class User6Bean {
 	private String uid;
 	private String name;
 	private String birth;
@@ -51,6 +51,7 @@ public class UserBean6 {
 	public void setHp(String hp) {
 		this.hp = hp;
 	}
+	
 	
 	
 }
