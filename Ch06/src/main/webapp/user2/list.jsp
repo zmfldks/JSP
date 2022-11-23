@@ -57,8 +57,8 @@
 				<td><%=ub.getHp() %></td>
 				<td><%=ub.getAge() %></td>
 				<td>
-					<a href="./modift.jsp">수정</a>
-					<a href="./delete.jsp">삭제</a>
+					<a href="./modify.jsp?uid=<%= ub.getUid() %>">수정</a>
+					<a href="./delete.jsp?uid=<%= ub.getUid() %>">삭제</a>
 				</td>
 			</tr>
 			<% } %>

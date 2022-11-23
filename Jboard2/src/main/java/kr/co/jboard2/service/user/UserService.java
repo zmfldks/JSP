@@ -16,6 +16,7 @@ import org.slf4j.LoggerFactory;
 
 import kr.co.jboard2.dao.UserDAO;
 import kr.co.jboard2.vo.TermsVO;
+import kr.co.jboard2.vo.UserVO;
 
 public enum UserService {
 	
@@ -27,14 +28,35 @@ public enum UserService {
 		dao = new UserDAO();
 	}
 	
-	public void insertUser() {}
+	public void insertUser(UserVO vo) {
+		dao.insertUser(vo);
+	}
 	public TermsVO selectTerms() {
 		return dao.selectTerms();
 	}
-	public void selectUser() {}
+	public int selectCountUid(String uid) {
+		return dao.selectCountUid(uid);
+	}
+	public int selectCountNick(String nick) {
+		return dao.selectCountNick(nick);
+	}
+	public UserVO selectUser(String uid, String pass) {
+		return dao.selectUser(uid, pass);
+	}
+	public UserVO selectUserForFindId(String name, String email) {
+		return dao.selectUserForFindId(name, email);
+	}
+	public UserVO selectUserForFindPw(String uid, String email) {
+		return dao.selectUserForFindPw(uid, email);
+	}
+	
 	public void selectUsers() {}
 	public void updateUser() {}
+	public int updateUserPassword(String uid, String pass) {
+		return dao.updateUserPassword(uid, pass);
+	}
 	public void deleteUser() {}
+	
 
 	public int[] sendEmailCode(String receiver) {
 		

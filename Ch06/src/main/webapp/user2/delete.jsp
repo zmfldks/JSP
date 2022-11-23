@@ -1,4 +1,3 @@
-<%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="config.DBCP"%>
 <%@page import="java.sql.Connection"%>
@@ -6,26 +5,20 @@
 <%
 	request.setCharacterEncoding("UTF-8");
 	String uid = request.getParameter("uid");
-	String name = request.getParameter("name");
-	String hp = request.getParameter("hp");
-	String age = request.getParameter("age");
 	
 	try{
 		Connection conn = DBCP.getConnection();
-		PreparedStatement psmt = conn.prepareStatement("insert into `user2` values (?,?,?,?)");
+		String sql = "delete from `user2` where `uid`=?";
+		PreparedStatement psmt = conn.prepareStatement(sql);
 		psmt.setString(1, uid);
-		psmt.setString(2, name);
-		psmt.setString(3, hp);
-		psmt.setString(4, age);
-		
 		psmt.executeUpdate();
 		
 		psmt.close();
 		conn.close();
+		
 	}catch(Exception e){
 		e.printStackTrace();
 	}
 	
 	response.sendRedirect("./list.jsp");
-	
 %>
