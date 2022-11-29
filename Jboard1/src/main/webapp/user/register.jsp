@@ -14,7 +14,7 @@
                             <td>아이디</td>
                             <td>
                                 <input type="text" name="uid" placeholder="아이디 입력"/>
-                                <button type="button" id="btnIdCheck"><img src="/Jboard1/img/게시판 이미지/chk_id.gif" alt="중복확인"/></button>
+                                <button type="button" id="btnIdCheck"><img src="/Jboard1/img/imgs/chk_id.gif" alt="중복확인"/></button>
                                 <span class="uidResult"></span>
                             </td>
                         </tr>
@@ -45,7 +45,7 @@
                             <td>
                                 <p class="nickInfo">공백없는 한글, 영문, 숫자 입력</p>
                                 <input type="text" name="nick" placeholder="별명 입력"/>
-                                <button type="button" id="btnNickCheck"><img src="/Jboard1/img/게시판 이미지/chk_id.gif" alt="중복확인"/></button>
+                                <button type="button" id="btnNickCheck"><img src="/Jboard1/img/imgs/chk_id.gif" alt="중복확인"/></button>
                                 <span class="nickResult"></span>
                             </td>
                         </tr>
@@ -67,7 +67,7 @@
                             <td>주소</td>
                             <td>
                                 <input type="text" name="zip" id="zip" placeholder="우편번호" readonly="readonly"/>
-                                <button type="button" onclick="zipcode()"><img src="/Jboard1/img/게시판 이미지/chk_post.gif" alt="우편번호찾기"/></button>
+                                <button type="button" onclick="zipcode()"><img src="/Jboard1/img/imgs/chk_post.gif" alt="우편번호찾기"/></button>
                                 <input type="text" name="addr1" id="addr1" placeholder="주소 검색"/>
                                 <input type="text" name="addr2" id="addr2" placeholder="상세주소 입력"/>
                             </td>

@@ -95,6 +95,8 @@ public class User1DAO extends DBHelper {
 			psmt.setString(2, vo.getHp());
 			psmt.setInt(3, vo.getAge());
 			psmt.setString(4, vo.getUid());
+			psmt.executeUpdate();
+			close();
 		}catch (Exception e) {
 			e.printStackTrace();
 		}

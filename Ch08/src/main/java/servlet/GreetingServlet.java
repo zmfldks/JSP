@@ -34,7 +34,7 @@ public class GreetingServlet extends HttpServlet{
 		writer.println("<title>GreetingServlet</title>");
 		writer.println("</head>");
 		writer.println("<body>");
-		writer.println("<h3>WelcomeServlet</h3>");
+		writer.println("<h3>GreetingServlet</h3>");
 		writer.println("<p>");
 		writer.println("<a href='./1_서블릿.jsp'>서블릿 메인</a><br/>");
 		writer.println("<a href='./hello.do'>HelloServlet</a><br/>");

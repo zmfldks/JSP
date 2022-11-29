@@ -19,6 +19,6 @@
 		<h3>1.서블릿</h3>
 		<a href="./hello.do">HelloServlet 요청</a><br/>
 		<a href="./welcome.do">WelcomeServlet 요청</a><br/>
-		<a href="./greeting">GreetingServlet 요청</a><br/>
+		<a href="./greeting.do">GreetingServlet 요청</a><br/>
 	</body>
 </html>

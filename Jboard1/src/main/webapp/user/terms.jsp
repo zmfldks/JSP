@@ -69,7 +69,7 @@
 
                 <p>
                     <a href="/Jboard1/user/login.jsp" class="btn btnCancel">취소</a>
-                    <a href="/Jboard1/user//register.jsp" class="btn btnNext">다음</a>
+                    <a href="/Jboard1/user/register.jsp" class="btn btnNext">다음</a>
                 </p>
 
             </section>

@@ -4,12 +4,12 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>user1::list</title>
+		<title>list</title>
 	</head>
 	<body>
-		<h3>user1 목록</h3>
+		<h3>user2 목록</h3>
 		<a href="/Ch09/index.do">처음으로</a>
-		<a href="/Ch09/user1/register.do">user1 등록</a>
+		<a href="/Ch09/user2/register.do">등록하기</a>
 		
 		<table border="1">
 			<tr>
@@ -20,18 +20,17 @@
 				<th>관리</th>
 			</tr>
 			<c:forEach var="user" items="${users}">
-				<tr>
-					<td>${user.uid}</td>
-					<td>${user.name}</td>
-					<td>${user.hp}</td>
-					<td>${user.age}</td>
-					<td>
-						<a href="/Ch09/user1/modify.do?uid=${user.uid}">수정</a>
-						<a href="/Ch09/user1/delete.do?uid=${user.uid}">삭제</a>
-					</td>				
-				</tr>
+			<tr>
+				<td>${user.uid}</td>
+				<td>${user.name}</td>
+				<td>${user.hp}</td>
+				<td>${user.age}</td>
+				<td colspan="2" align="right">
+					<a href="./modify.do?uid=${user.uid}">수정</a>
+					<a href="./delete.do?uid=${user.uid}">삭제</a>
+				</td>
+			</tr>
 			</c:forEach>
 		</table>
-		
 	</body>
 </html>
