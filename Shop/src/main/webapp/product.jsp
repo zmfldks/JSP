@@ -52,10 +52,11 @@
 		$(document).on('click', '#btnOrder',function(e){
 			e.preventDefault();
 			
-			$('section').empty();
-			$('nav').empty().append("<h4>주문하기</h4>");
+			$('section').show();
 			
-			let table = "<table border='1'>";
+			/* $('nav').empty().append("<h4>주문하기</h4>");
+			
+			 let table = "<table border='1'>";
 				table += "<tr>";
 				table += "<td>상품번호</td>";
 				table += "<td><input type='text' name='proNo' placeholder=''></td>";
@@ -71,9 +72,9 @@
 				table += "<tr>";
 				table += "<td colspan='2' align='right'><input type='submit' value='주문하기' id='f'></td>";
 				table += "</tr>";
-				table += "</table>";	
+				table += "</table>"; 	
 			
-			$('section').append(table);
+			$('section').append(table);*/
 			
 		});
 		
@@ -140,6 +141,26 @@
 			<% } %>
 		</table>
 		<nav></nav>
-		<section></section>
+		<section style="display:none;">
+			<h4>주문하기</h4>
+			<table border="1">
+				<tr>
+					<td>상품번호</td>
+					<td><input type="text" name="prodNo" readonly="readonly"></td>
+				</tr>
+				<tr>
+					<td>수량</td>
+					<td><input type="text" name="prodCount"></td>
+				</tr>
+				<tr>
+					<td>주문자</td>
+					<td><input type="text" name="prodOrderer"></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="right"><input type="submit" value="주문하기"></td>
+				</tr>
+			</table>
+			<button class="btnClose">닫기</button>
+		</section>
 	</body>
 </html>
