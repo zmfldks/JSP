@@ -31,5 +31,8 @@ public class User2VO {
 		this.age = age;
 	}
 	
+	public void setAge(String age) {
+		this.age = Integer.parseInt(age); 
+	}
 	
 }
