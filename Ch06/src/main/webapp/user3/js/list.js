@@ -21,7 +21,7 @@
 			table += "<th>관리</th>";
 			table += "</tr>";
 			table += "</table>";
-		
+			
 		$('section').append(table);
 		
 		for(let user of data){
