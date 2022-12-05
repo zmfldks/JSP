@@ -149,7 +149,7 @@
 		}
 		
 		if(!nick.match(reNick)) {
-			$('.nickResult').css('color', 'red').text('유효한 별명이 아닙니다.');
+			$('.resultNick').css('color', 'red').text('유효한 별명이 아닙니다.');
 			isNickOk = false;
 			return;
 		}
@@ -158,7 +158,7 @@
 			"nick": nick
 		};
 		
-		$('.nickResult').css('color', 'black').text('...');
+		$('.resultNick').css('color', 'black').text('...');
 		
 		setTimeout(function(){
 			
