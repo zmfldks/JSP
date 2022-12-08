@@ -47,7 +47,7 @@ public class UserCheckController extends HttpServlet{
 			json.addProperty("result", 0);
 		}
 		
-		PrintWriter writer =resp.getWriter();
+		PrintWriter writer = resp.getWriter();
 		writer.print(json.toString());
 		
 	}
