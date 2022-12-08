@@ -24,7 +24,7 @@
 		<h4>스크립트릿(Scriptlet)</h4>
 			<%
 				// 스크립트릿(프로그래밍 코드 영역)
-				int 	var1 =1;
+				int 	var1 = 1;
 				boolean var2 = true;
 				double 	var3 = 3.14;
 				String 	var4 = "Hello";
