@@ -80,6 +80,34 @@ public class ArticleDAO extends DBHelper {
 		}
 	}
 	
+public int listTotalNum(String pg) {
+		
+		logger.debug("pageNum...");
+		
+		int total = 0;
+		
+		// 전체 게시물 갯수 구하기
+		try {
+			logger.debug("selectCountTotal...");
+			Connection conn = getConnection();
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(Sql.SELECT_COUNT_TOTAL);
+			
+			if(rs.next()) {
+				total = rs.getInt(1);
+			}
+			
+			conn.close();
+			stmt.close();
+			rs.close();
+			
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		}
+		
+		return total;
+	}
+	
 	public ArticleVO insertComment(ArticleVO comment) {
 		
 		ArticleVO article = null;
@@ -480,6 +508,45 @@ public class ArticleDAO extends DBHelper {
 		return result;
 	}
 	
+	public List<ArticleVO> selectCommentList(String no) {
+		
+		List<ArticleVO> articles = new ArrayList<>();
+		
+		try {
+			logger.info("selectCommentList...");
+			
+			Connection conn = getConnection();
+			PreparedStatement psmt = conn.prepareStatement(Sql.SELECT_COMMENTS);
+			psmt.setString(1, no);
+			ResultSet rs   = psmt.executeQuery();
+			
+			while(rs.next()) {
+				ArticleVO ab = new ArticleVO();
+				ab.setNo(rs.getInt(1));
+				ab.setParent(rs.getString(2));
+				ab.setComment(rs.getInt(3));
+				ab.setCate(rs.getString(4));
+				ab.setTitle(rs.getString(5));
+				ab.setContent(rs.getString(6));
+				ab.setFile(rs.getInt(7));
+				ab.setHit(rs.getInt(8));
+				ab.setUid(rs.getString(9));
+				ab.setRegip(rs.getString(10));
+				ab.setRdate(rs.getString(11).substring(2, 10));
+				ab.setNick(rs.getString(12));
+				
+				articles.add(ab);			}
+			
+			conn.close();
+			psmt.close();
+			rs.close();
+			
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		}
+		
+		return articles;
+	}
 	
 	
 }
