@@ -436,15 +436,18 @@ public int listTotalNum(String pg) {
 	
 	public void deleteArticle(String no) {
 		try {
+			logger.info("selectCountTotal");
 			Connection conn = getConnection();
 			PreparedStatement psmt = conn.prepareStatement(Sql.DELETE_ARTICLE);
 			psmt.setString(1, no);
 			psmt.setString(2, no);
 			psmt.executeUpdate();
+			
 			psmt.close();
 			conn.close();
 		}catch (Exception e) {
 			e.printStackTrace();
+			logger.error(e.getMessage());
 		}
 		
 	}

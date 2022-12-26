@@ -77,6 +77,8 @@
 			}
 		});
 		
+		
+		
 		/*
 		let url = "/Jboard2/commentList.do?no="+no		
 		$.get(url, function(data){
@@ -122,7 +124,7 @@
         <div>
             <a href="/Jboard2/delete.do?no=${vo.no}&pg=${pg}" class="btn btnRemove">삭제</a>
             <a href="/Jboard2/modify.do?no=${vo.no}&pg=${pg}" class="btn btnModify">수정</a>
-            <a href="/Jboard2/list.do?pg=${pg}" class="btn btnList">목록</a>
+            <a href="/Jboard2/list.do?no=${vo.no}&pg=${pg}" class="btn btnList">목록</a>
         </div>
 
         <!-- 댓글목록 -->
@@ -140,7 +142,7 @@
             	<input type="hidden" name="no" value="${vo.no}">
                 <textarea name="content">댓글내용 입력</textarea>
                 <div>
-                    <a href="/Jboard2/list.do" class="btn btnCancel">취소</a>
+                    <a href="/Jboard2/list.do?pg=${pg}" class="btn btnCancel">취소</a>
                     <input type="submit" value="작성완료" class="btn btnComplete"/>
                 </div>
             </form>
