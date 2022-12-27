@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.co.jboard2.vo.ArticleVO;
+import kr.co.jboard2.vo.PagenumVO;
 
 @WebServlet("/modify.do")
 public class ModifyController extends HttpServlet{
@@ -23,6 +24,9 @@ public class ModifyController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+		String uid = req.getParameter("uid");
+		
+		
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/modify.jsp");
 		dispatcher.forward(req, resp);
@@ -34,6 +38,9 @@ public class ModifyController extends HttpServlet{
 		String pg = req.getParameter("pg");
 		String title = req.getParameter("title");
 		String content = req.getParameter("content");
+		
+		PagenumVO pv = new PagenumVO();
+		
 		
 		ArticleVO vo = new ArticleVO();
 		vo.setno(no);

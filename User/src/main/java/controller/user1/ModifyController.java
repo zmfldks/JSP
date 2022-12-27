@@ -1,4 +1,4 @@
-package kr.co.jboard2.controller;
+package controller.user1;
 
 import java.io.IOException;
 
@@ -8,14 +8,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.co.jboard2.service.ArticleService;
-import kr.co.jboard2.vo.ArticleVO;
+import dao.User1dao;
+import vo.user1vo;
 
-@WebServlet("/delete.do")
-public class DeleteController extends HttpServlet{
+@WebServlet("/modify.do")
+public class ModifyController extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
-	private static ArticleService service = ArticleService.INSTANCE;
 	
 	@Override
 	public void init() throws ServletException {
@@ -23,14 +22,9 @@ public class DeleteController extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		//String uid = req.getParameter("uid");
-		String no = req.getParameter("no");
-		String pg = req.getParameter("pg");
+		String uid = req.getParameter("uid");
 		
-		
-		ArticleVO vo = service.deleteArticle(no);
-		
-		resp.sendRedirect("/Jboard2/list.do");
+		user1vo vo = User1dao.getInstance().selectUser1();
 	}
 	
 	@Override

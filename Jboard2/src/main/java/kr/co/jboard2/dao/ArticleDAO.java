@@ -440,7 +440,6 @@ public int listTotalNum(String pg) {
 			Connection conn = getConnection();
 			PreparedStatement psmt = conn.prepareStatement(Sql.DELETE_ARTICLE);
 			psmt.setString(1, no);
-			psmt.setString(2, no);
 			psmt.executeUpdate();
 			
 			psmt.close();

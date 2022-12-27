@@ -102,7 +102,7 @@ public class Sql {
 												+ "where `no`=?";
 	
 	
-	public static final String DELETE_ARTICLE = "delete from `board_article` where `no`=? or `parent`=?";
+	public static final String DELETE_ARTICLE = "delete from `board_article` where `no`=?";
 	public static final String DELETE_COMMENT  = "delete from `board_article` where `no`=?";
 	public static final String DELETE_FILE  = "delete from `board_file` where `parent`=?";
 	

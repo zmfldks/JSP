@@ -122,8 +122,10 @@
             </tr>                    
         </table>
         <div>
-            <a href="/Jboard2/delete.do?no=${vo.no}&pg=${pg}" class="btn btnRemove">삭제</a>
-            <a href="/Jboard2/modify.do?no=${vo.no}&pg=${pg}" class="btn btnModify">수정</a>
+        	<c:if test="${sessUser.uid eq vo.uid}">
+        		<a href="/Jboard2/delete.do?no=${vo.no}&pg=${pg}" class="btn btnRemove">삭제</a>
+            	<a href="/Jboard2/modify.do?no=${vo.no}&pg=${pg}" class="btn btnModify">수정</a>
+            </c:if>
             <a href="/Jboard2/list.do?no=${vo.no}&pg=${pg}" class="btn btnList">목록</a>
         </div>
 
