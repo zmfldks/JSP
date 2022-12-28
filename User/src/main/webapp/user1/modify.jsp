@@ -12,19 +12,19 @@
 			<table border="1">
 				<tr>
 					<td>아이디</td>
-					<td><input type="text" name="uid" readonly></td>
+					<td><input type="text" name="uid" readonly value="${vo.uid}"></td>
 				</tr>
 				<tr>
 					<td>이름</td>
-					<td><input type="text" name="name"></td>
+					<td><input type="text" name="name" value="${vo.name}"></td>
 				</tr>
 				<tr>
 					<td>휴대폰</td>
-					<td><input type="text" name="hp"></td>
+					<td><input type="text" name="hp" value="${vo.hp}"></td>
 				</tr>
 				<tr>
 					<td>나이</td>
-					<td><input type="number" name="age"></td>
+					<td><input type="number" name="age" value="${vo.age}"></td>
 				</tr>
 				<tr>
 					<td colspan="2" align="right">

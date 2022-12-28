@@ -77,8 +77,33 @@ public class User1dao extends DBHelper{
 		}
 		return users;
 	}
-	public void updateUser1() {}
-	public void deleteUser1() {}
+	public void updateUser1(user1vo vo) {
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement("update `user1` set `name`=?, `hp`=?, `age`=? where `uid`=?");
+			psmt.setString(1, vo.getName());
+			psmt.setString(2, vo.getHp());
+			psmt.setInt(3, vo.getAge());
+			psmt.setString(4, vo.getUid());
+			psmt.executeUpdate();
+			
+			close();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	public void deleteUser1(String uid) {
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement("delete from `user1` where `uid=?");
+			psmt.setString(1, uid);
+			psmt.executeUpdate();
+			close();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
 	
 
 }
