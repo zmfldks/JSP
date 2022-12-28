@@ -1,4 +1,4 @@
-package controller.user1;
+package controller.user5;
 
 import java.io.IOException;
 
@@ -9,11 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.User1dao;
-import vo.user1vo;
+import dao.user5dao;
+import vo.user5vo;
 
-@WebServlet("/user1/modify.do")
-public class ModifyController extends HttpServlet{
+@WebServlet("/user5/register.do")
+public class RegisterController extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
 	
@@ -23,12 +23,7 @@ public class ModifyController extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String uid = req.getParameter("uid");
-		
-		user1vo vo = User1dao.getInstance().selectUser1(uid);
-		req.setAttribute("vo", vo);
-		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/user1/modify.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/user5/register.jsp");
 		dispatcher.forward(req, resp);
 	}
 	
@@ -36,17 +31,23 @@ public class ModifyController extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String uid = req.getParameter("uid");
 		String name = req.getParameter("name");
-		String hp = req.getParameter("hp");
+		String birth = req.getParameter("birth");
+		String gender = req.getParameter("gender");
 		String age = req.getParameter("age");
+		String addr = req.getParameter("addr");
+		String hp = req.getParameter("hp");
 		
-		user1vo vo = new user1vo();
+		user5vo vo = new user5vo();
 		vo.setUid(uid);
 		vo.setName(name);
-		vo.setHp(hp);
+		vo.setBirth(birth);
+		vo.setGender(gender);
 		vo.setAge(age);
+		vo.setAddr(addr);
+		vo.setHp(hp);
 		
-		User1dao.getInstance().updateUser1(vo);
+		user5dao.getInstance().insertUser5(vo);
 		
-		resp.sendRedirect("/User/user1/list.do");
+		resp.sendRedirect("/User/user5/list.do");
 	}
 }

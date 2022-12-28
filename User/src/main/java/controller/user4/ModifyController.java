@@ -1,4 +1,4 @@
-package controller.user1;
+package controller.user4;
 
 import java.io.IOException;
 
@@ -9,10 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.User1dao;
-import vo.user1vo;
+import dao.user4dao;
+import vo.user4vo;
 
-@WebServlet("/user1/modify.do")
+@WebServlet("/user4/modify.do")
 public class ModifyController extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
@@ -23,30 +23,33 @@ public class ModifyController extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String uid = req.getParameter("uid");
+		String seq = req.getParameter("seq");
 		
-		user1vo vo = User1dao.getInstance().selectUser1(uid);
+		user4vo vo = user4dao.getInstance().selectUser4(seq);
 		req.setAttribute("vo", vo);
 		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/user1/modify.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/user4/modify.jsp");
 		dispatcher.forward(req, resp);
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String uid = req.getParameter("uid");
+		String seq = req.getParameter("seq");
 		String name = req.getParameter("name");
-		String hp = req.getParameter("hp");
+		String gender = req.getParameter("gender");
 		String age = req.getParameter("age");
+		String addr = req.getParameter("addr");
 		
-		user1vo vo = new user1vo();
-		vo.setUid(uid);
+		user4vo vo = new user4vo();
+		vo.setSeq(seq);
 		vo.setName(name);
-		vo.setHp(hp);
+		vo.setGender(gender);
 		vo.setAge(age);
+		vo.setAddr(addr);
 		
-		User1dao.getInstance().updateUser1(vo);
+		user4dao.getInstance().updateUser4(vo);
 		
-		resp.sendRedirect("/User/user1/list.do");
+		resp.sendRedirect("/User/user4/list.do");
+		
 	}
 }
