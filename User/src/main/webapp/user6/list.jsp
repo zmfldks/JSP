@@ -4,11 +4,11 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>user5::list</title>
+		<title>user6::list</title>
 	</head>
 	<body>
-		<h3>user5 목록</h3>
-		<a href="/User/user5/register.do">등록하기</a>
+		<h3>user6 목록</h3>
+		<a href="/User/user6/register.do">등록하기</a>
 		<table border="1">
 			<tr>
 				<th>아이디</th>
@@ -22,27 +22,30 @@
 			</tr>
 			<c:forEach var="user" items="${users}">
 				<tr>
-					<td>${user.uid}</td>
-					<td>${user.name}</td>
+					<td>${user.uid}</td> 
+					<td>${user.name}</td> 
 					<td>${user.birth}</td>
 					<c:choose>
-					<c:when test="${user.gender == 1}">
+					<c:when test="${user.gender == 0}"> 
+					<td>모름</td>
+					</c:when>
+					<c:when test="${user.gender == 1}"> 
 					<td>남자</td>
 					</c:when>
-					<c:when test="${user.gender == 2}">
+					<c:when test="${user.gender == 2}"> 
 					<td>여자</td>
 					</c:when>
-					<c:when test="${user.gender == 3}">
+					<c:when test="${user.gender == 3}"> 
 					<td>비공개</td>
 					</c:when>
-					</c:choose>
-					<td>${user.age}</td>
-					<td>${user.addr}</td>
-					<td>${user.hp}</td>
+					</c:choose> 
+					<td>${user.age}</td> 
+					<td>${user.addr}</td> 
+					<td>${user.hp}</td> 
 					<td>
-						<a href="/User/user5/modify.do?uid=${user.uid}">수정</a>
-						<a href="/User/user5/delete.do?uid=${user.uid}">삭제</a>
-					</td>
+						<a href="/User/user6/modify.do?uid=${user.uid}">수정</a>
+						<a href="/User/user6/delete.do?uid=${user.uid}">삭제</a>
+					</td> 
 				</tr>
 			</c:forEach>
 		</table>
