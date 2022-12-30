@@ -158,32 +158,32 @@ public int listTotalNum(String pg) {
 	
 	public int selectCountTotal(String search) {
 			
-			int total = 0;
+		int total = 0;
+		
+		try {
+			logger.info("selectCountTotal");
+			conn = getConnection();
 			
-			try {
-				logger.info("selectCountTotal");
-				conn = getConnection();
-				
-				if(search == null) {
-					stmt = conn.createStatement();			
-					rs = stmt.executeQuery(Sql.SELECT_COUNT_TOTAL);
-				}else {
-					psmt = conn.prepareStatement(Sql.SELECT_COUNT_TOTAL_FOR_SEARCH);
-					psmt.setString(1, "%"+search+"%");
-					psmt.setString(2, "%"+search+"%");
-					rs = psmt.executeQuery();
-				}
-				
-				if(rs.next()) {
-					total = rs.getInt(1);
-				}
-				
-				close();
-			}catch (Exception e) {
-				logger.error(e.getMessage());
+			if(search == null) {
+				stmt = conn.createStatement();			
+				rs = stmt.executeQuery(Sql.SELECT_COUNT_TOTAL);
+			}else {
+				psmt = conn.prepareStatement(Sql.SELECT_COUNT_TOTAL_FOR_SEARCH);
+				psmt.setString(1, "%"+search+"%");
+				psmt.setString(2, "%"+search+"%");
+				rs = psmt.executeQuery();
 			}
-			return total;
+			
+			if(rs.next()) {
+				total = rs.getInt(1);
+			}
+			
+			close();
+		}catch (Exception e) {
+			logger.error(e.getMessage());
 		}
+		return total;
+	}
 	
 	public ArticleVO selectArticle(String no) {
 		
@@ -436,7 +436,7 @@ public int listTotalNum(String pg) {
 	
 	public void deleteArticle(String no) {
 		try {
-			logger.info("selectCountTotal");
+			logger.info("deleteArticle...");
 			Connection conn = getConnection();
 			PreparedStatement psmt = conn.prepareStatement(Sql.DELETE_ARTICLE);
 			psmt.setString(1, no);

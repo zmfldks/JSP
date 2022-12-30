@@ -13,8 +13,37 @@ public class User6DAO extends DBHelper{
 	}
 	private User6DAO() {}
 	
-	public void insertUser6() {}
-	public void selectUser6() {}
+	public void insertUser6(User6VO vo) {
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement("insert into `user6` value (?,?,?,?,?,?,?)");
+			psmt.setString(1, vo.getUid());
+			psmt.setString(2, vo.getName());
+			psmt.setString(3, vo.getBirth());
+			psmt.setInt(4, vo.getGender());
+			psmt.setInt(5, vo.getAge());
+			psmt.setString(6, vo.getAddr());
+			psmt.setString(7, vo.getHp());
+			psmt.executeUpdate();
+			
+			close();
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	public void selectUser6(String uid) {
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement("select * from `user6` where `uid`=?");
+			psmt.setString(1, uid);
+			psmt.executeQuery();
+			
+			close();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
 	public List<User6VO> selectUser6s() {
 		List<User6VO> users = new ArrayList<>();

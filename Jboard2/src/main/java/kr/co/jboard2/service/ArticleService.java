@@ -37,6 +37,7 @@ public enum ArticleService {
 	}
 	
 	public ArticleVO selectArticle(String no) {
+		
 		return dao.selectArticle(no);
 	}
 	
@@ -66,9 +67,8 @@ public enum ArticleService {
 		return dao.insertComment(comment);
 	}
 	
-	public ArticleVO deleteArticle(String no) {
+	public void deleteArticle(String no) {
 		dao.deleteArticle(no);
-		return null;
 	}
 	
 	

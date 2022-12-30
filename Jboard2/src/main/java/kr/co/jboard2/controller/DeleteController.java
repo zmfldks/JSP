@@ -27,8 +27,7 @@ public class DeleteController extends HttpServlet{
 		String no = req.getParameter("no");
 		String pg = req.getParameter("pg");
 		
-		
-		ArticleVO vo = service.deleteArticle(no);
+		service.deleteArticle(no);
 		
 		resp.sendRedirect("/Jboard2/list.do");
 	}
